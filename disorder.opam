@@ -1,0 +1,20 @@
+opam-version: "1.2"
+name: "disorder"
+version: "0.01"
+maintainer: "Tim McGilchrist <timmcgil@gmail.com>"
+authors: "Tim McGilchrist <timmcgil@gmail.com>"
+homepage: "https://github.com/tmcgilchrist/disorder.ml"
+dev-repo: "git@github.com:tmcgilchrist/disorder.ml.git"
+build: [
+  ["jbuilder" "subst"] {pinned}
+  ["jbuilder" "build" "-p" name "-j" jobs]
+]
+remove: [
+  ["ocamlfind" "remove" "disorder"]
+]
+depends: [
+  "qcheck" { >= "0.8" }
+  "jbuilder" { build & >= "1.0+beta17" }
+]
+
+available: [ ocaml-version >= "4.04.2" ]
